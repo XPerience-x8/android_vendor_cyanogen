@@ -84,6 +84,9 @@ PRODUCT_COPY_FILES += \
     vendor/cyanogen/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/cyanogen/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
     vendor/cyanogen/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/cyanogen/prebuilt/common/bin/xrecovery.tar:system/bin/xrecovery.tar \
+    vendor/cyanogen/prebuilt/common/bin/chargemon:system/bin/chargemon \
+    vendor/cyanogen/prebuilt/common/bin/busybox:system/bin/busybox \
     vendor/cyanogen/prebuilt/common/xbin/htop:system/xbin/htop \
     vendor/cyanogen/prebuilt/common/xbin/irssi:system/xbin/irssi \
     vendor/cyanogen/prebuilt/common/xbin/lsof:system/xbin/lsof \

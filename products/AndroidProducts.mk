@@ -8,6 +8,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/cyanogen_glacier.mk \
     $(LOCAL_DIR)/cyanogen_harmony.mk \
     $(LOCAL_DIR)/cyanogen_hero.mk \
+    $(LOCAL_DIR)/cyanogen_x10mini.mk \
     $(LOCAL_DIR)/cyanogen_heroc.mk \
     $(LOCAL_DIR)/cyanogen_inc.mk \
     $(LOCAL_DIR)/cyanogen_legend.mk \
