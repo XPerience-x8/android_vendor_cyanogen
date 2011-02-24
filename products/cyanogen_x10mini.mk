@@ -31,7 +31,7 @@ WITH_WINDOWS_MEDIA := true
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM-1.0.0
+	ro.modversion=MiniCM-1.0.0-Alpha2
 
 #
 # Copy passion specific prebuilt files
