@@ -81,9 +81,20 @@ libui.so                0xAB900000 # [~1M]
 libsgl.so               0xAB800000 # [???]
 libskia.so              0xAB100000 # [~7M]
 librs_jni.so            0xAB000000 # [~1M]
+
+# graphics from SE 2.1
+libEGL_adreno200.so         0xAAF00000
+gralloc.default.so          0xAAE00000
+libq3dtools_adreno200.so    0xAAD00000
+libGLESv1_CM_adreno200.so   0xAAC00000
+libGLESv2_adreno200.so      0xAAB00000
+
 libRS.so                0xA9E00000 # [~2M]
 libjnigraphics.so       0xA9D00000 # [<64K]
 libskiagl.so            0xA9C00000 # [~1M]
+
+
+
 
 # audio
 libFLAC.so              0xA9B00000 # [???]
@@ -173,6 +184,53 @@ libhtc_acoustic.so      0xA2D00000 # [<64K]
 libhtc_ril.so           0xA2C00000 # [~1M]
 liblvmxipc.so           0xA2B00000 # [~1M] for vendor/nxp
 libreference-cdma-sms.so 0xA2A00000 # [<64K] for hardware/ril
+
+# SE system libraries   
+libvdmengine.so                  0xA2900000
+libloc.so                        0xA2800000
+libmmgsdilib.so                  0xA2700000
+libqmi.so                        0xA2600000
+lights.default.so                0xA2500000
+libloc-rpc.so                    0xA2400000
+libdss.so                        0xA2300000
+libfuse.so                       0xA2200000
+libpbmlib.so                     0xA2100000
+libaudioeq.so                    0xA2000000
+                                #0xA1F00000
+libfm_stack.so                   0xA1E00000
+copybit.msm7k.so                 0xA1D00000
+libqueue.so                      0xA1C00000
+liboncrpc.so                     0xA1B00000
+libmiscta.so                     0xA1A00000
+libfacedetect.so                 0xA1900000
+libsystemconnector_hal_jni.so    0xA1800000
+                                 #0xA1700000
+libgsdi_exp.so                   0xA1600000
+libauth.so                       0xA1500000
+sensors.default.so               0xA1400000
+                                 #0xA1300000
+                                 #0xA1200000
+hal_seport.default.so            0xA1100000
+libmmjpeg.so                     0xA1000000
+libuinputdevicejni.so            0xA0F00000
+libdsm.so                        0xA0E00000
+libOmxWmaDec.so                  0xA0D00000
+libril-qc-1.so                   0xA0C00000
+libmmipl.so                      0xA0B00000
+libdiag.so                       0xA0A00000
+libcm.so                         0xA0900000
+libnv.so                         0xA0800000
+gralloc.msm7k.so                 0xA0700000
+libvdmfumo.so                    0xA0600000
+libZiEngine.so                   0xA0500000
+libgstk_exp.so                   0xA0400000
+libfacedetectjnitest.so          0xA0300000
+libcommondefs.so                 0xA0200000
+libwmsts.so                      0xA0100000
+libdll.so                        0xA0000000
+
+               
+
 
 # libraries for specific apps or temporary libraries
 libcam_ipl.so           0x9F000000 # [???]
