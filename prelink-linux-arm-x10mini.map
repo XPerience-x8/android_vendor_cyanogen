@@ -16,6 +16,11 @@
 #     [<64K] observed to be less than 64K
 #     [~1M] rounded up, one megabyte (similarly for other sizes)
 #     [???] no size observed, assumed to be one megabyte
+#
+# note: look at the LOAD sections in the library header:
+#
+#   arm-eabi-objdump -x <lib>
+#
 
 # core system libraries
 libdl.so                0xAFF00000 # [<64K]
@@ -41,9 +46,11 @@ libbluetooth.so         0xAE800000 # [~1M]
 libdbus.so              0xAE700000 # [~1M]
 
 # extended system libraries
-libril.so               0xAE600000 # [~1M]
+libril.so               0xAE600000 # [~1M]def
+#libwpa_client.so        0xAE600000 # [<64K] 
 libreference-ril.so     0xAE500000 # [~1M]
-libwpa_client.so        0xAE400000 # [<64K]
+libwpa_client.so        0xAE400000 # [<64K] def
+#libril.so               0xAE400000 # [~1M]
 libnetutils.so          0xAE300000 # [~1M]
 
 # core dalvik runtime support
@@ -67,8 +74,8 @@ libagl.so               0xAC300000 # [???]
 
 libGLESv1_CM.so         0xAC200000 # [~1M]
 libGLESv2.so            0xAC100000 # [~1M]
-libOpenVG_CM.so         0xAC000000 # [???]
-libOpenVGU_CM.so        0xABF00000 # [???]
+#libOpenVG_CM.so         0xAC000000 # [???]
+#libOpenVGU_CM.so        0xABF00000 # [???]
 libEGL.so               0xABE00000 # [~1M]
 libETC1.so              0xABD00000 # [<64K]
 
@@ -77,33 +84,27 @@ libacc.so               0xABC00000 # [~1M]
 libexif.so              0xABB00000 # [~1M]
 libcamera_client.so     0xABA80000 # [~1M]
 libui.so                0xAB900000 # [~1M]
-# libsgl is for backward-compatibility with donut
-libsgl.so               0xAB800000 # [???]
-libskia.so              0xAB100000 # [~7M]
+libgui.so               0xAB800000 # [~1M]
+libaudio.so             0xAB700000 # [~1M]
+libskia.so              0xAB100000 # [~2M]
 librs_jni.so            0xAB000000 # [~1M]
-
-# graphics from SE 2.1
-libEGL_adreno200.so         0xAAF00000
-gralloc.default.so          0xAAE00000
-libq3dtools_adreno200.so    0xAAD00000
-libGLESv1_CM_adreno200.so   0xAAC00000
-libGLESv2_adreno200.so      0xAAB00000
-
 libRS.so                0xA9E00000 # [~2M]
+libandroid.so           0xA9D80000 # [<64K]
 libjnigraphics.so       0xA9D00000 # [<64K]
 libskiagl.so            0xA9C00000 # [~1M]
-
-
-
 
 # audio
 libFLAC.so              0xA9B00000 # [???]
 libaudiopolicy.so       0xA9A00000 # [~1M]
-libaudiopolicygeneric.so 0xA9900000 # [???]
+libeffects.so           0xA9980000 # [<64K]
+libaudioeffect_jni.so   0xA9900000 # [<64K]
 libsoundpool.so         0xA9800000 # [~1M]
-libgps.so               0xA9700000 # [~1M] (moved for hero)
-libcamera.so            0xA9680000 # [~1M] (moved for hero)
-liboemcamera.so         0xA9400000 # [~2M] (moved for hero)
+libvorbisidec.so        0xA9700000 # [~1M]
+#libaudio.so             0xA9700000 # [~1M]
+libspeech.so            0xA9600000 # [~1M]
+#libsonivox.so           0xA9500000 # [~1M]
+liboemcamera.so         0xA9400000 # [~2M]
+#libvorbisidec.so        0xA9400000 # [~1M]
 libmedia_jni.so         0xA9300000 # [~1M]
 libmediaplayerservice.so 0xA9200000 # [~1M]
 libmedia.so             0xA9000000 # [~2M]
@@ -123,10 +124,10 @@ libhardware_legacy.so   0xA7E00000 # [~1M]
 libapp_process.so       0xA7D00000 # [???]
 libsystem_server.so     0xA7C00000 # [~1M]
 libime.so               0xA7B00000 # [???]
-libaudio.so             0xA7A00000 # [~1M] (moved for hero)
-libspeech.so            0xA7900000 # [~1M] (moved for hero)
-libsonivox.so           0xA7800000 # [~1M] (moved for hero)
-libvorbisidec.so        0xA7700000 # [~1M] (moved for hero)
+libgps.so               0xA7A00000 # [~1M]
+libcamera.so            0xA7900000 # [~1M]
+libsonivox.so           0xA7700000 # [~1M]
+#liboemcamera.so         0xA7700000 # [~2M]
 libdiskconfig.so        0xA7600000 # [<64K]
 libemoji.so             0xA7500000 # [<64K]
 libjni_latinime.so      0xA7400000 # [~1M]
@@ -184,53 +185,6 @@ libhtc_acoustic.so      0xA2D00000 # [<64K]
 libhtc_ril.so           0xA2C00000 # [~1M]
 liblvmxipc.so           0xA2B00000 # [~1M] for vendor/nxp
 libreference-cdma-sms.so 0xA2A00000 # [<64K] for hardware/ril
-
-# SE system libraries   
-libvdmengine.so                  0xA2900000
-libloc.so                        0xA2800000
-libmmgsdilib.so                  0xA2700000
-libqmi.so                        0xA2600000
-lights.default.so                0xA2500000
-libloc-rpc.so                    0xA2400000
-libdss.so                        0xA2300000
-libfuse.so                       0xA2200000
-libpbmlib.so                     0xA2100000
-libaudioeq.so                    0xA2000000
-                                #0xA1F00000
-libfm_stack.so                   0xA1E00000
-copybit.msm7k.so                 0xA1D00000
-libqueue.so                      0xA1C00000
-liboncrpc.so                     0xA1B00000
-libmiscta.so                     0xA1A00000
-libfacedetect.so                 0xA1900000
-libsystemconnector_hal_jni.so    0xA1800000
-                                 #0xA1700000
-libgsdi_exp.so                   0xA1600000
-libauth.so                       0xA1500000
-sensors.default.so               0xA1400000
-                                 #0xA1300000
-                                 #0xA1200000
-hal_seport.default.so            0xA1100000
-libmmjpeg.so                     0xA1000000
-libuinputdevicejni.so            0xA0F00000
-libdsm.so                        0xA0E00000
-libOmxWmaDec.so                  0xA0D00000
-libril-qc-1.so                   0xA0C00000
-libmmipl.so                      0xA0B00000
-libdiag.so                       0xA0A00000
-libcm.so                         0xA0900000
-libnv.so                         0xA0800000
-gralloc.msm7k.so                 0xA0700000
-libvdmfumo.so                    0xA0600000
-libZiEngine.so                   0xA0500000
-libgstk_exp.so                   0xA0400000
-libfacedetectjnitest.so          0xA0300000
-libcommondefs.so                 0xA0200000
-libwmsts.so                      0xA0100000
-libdll.so                        0xA0000000
-
-               
-
 
 # libraries for specific apps or temporary libraries
 libcam_ipl.so           0x9F000000 # [???]
