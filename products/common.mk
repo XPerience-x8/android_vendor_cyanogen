@@ -7,7 +7,7 @@ PRODUCT_PACKAGES += ADWLauncher
 
 # Add ROMManager build property
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.ringtone=Innovation.mp3 \
+    ro.config.ringtone=Innovation.ogg \
     ro.config.notification_sound=Color.mp3 \
     ro.config.alarm_alert=Light.mp3 \
     ro.config.cal_notification=Vector.mp3 \
