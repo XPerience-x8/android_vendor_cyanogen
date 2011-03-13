@@ -56,7 +56,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/cyanogen/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
 
-# Common CM overlay
+# Common CM overlays. To build using MiniCM leave the following line uncommented
+# To build using floyo, comment the following line
+PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/MiniCM
 PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/floyo
 PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/common
 
