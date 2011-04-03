@@ -1,1 +1,1 @@
-common.mk_stock
+common.mk_minicm
