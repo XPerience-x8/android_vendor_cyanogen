@@ -70,17 +70,44 @@ then
         setprop cm.e2fsck.errors $e2fsk_exitcode;
         if [ "$e2fsk_exitcode" -lt 2 ];
         then
-   
-            # mount and set perms
-            $BB mount -o noatime,nodiratime -t auto $PARTITION $SD_EXT_DIRECTORY;
-            if [ "$?" = 0 ];
-            then
-                $BB chown 1000:1000 $SD_EXT_DIRECTORY;
-                $BB chmod 771 $SD_EXT_DIRECTORY;
-                $LOGI "$SD_EXT_DIRECTORY successfully mounted";
-            else
-                $LOGE "Unable to mount filesystem for $SD_EXT_DIRECTORY!";
-            fi
+	    FSTYPE=`/system/xbin/parted /dev/block/mmcblk0 print|grep ext |awk {'print $6'}`
+	    if [ "$FSTYPE" == "ext4" ];
+	    then
+	        insmod /system/lib/modules/jbd2.ko
+	        insmod /system/lib/modules/ext4.ko
+                $BB mount -o noatime,nodiratime -t ext4 $PARTITION $SD_EXT_DIRECTORY;
+	        if [ "$?" = 0 ];
+                then
+                    $BB chown 1000:1000 $SD_EXT_DIRECTORY;
+                    $BB chmod 771 $SD_EXT_DIRECTORY;
+                    $LOGI "$SD_EXT_DIRECTORY successfully mounted as ext4";
+                    else
+                        $LOGE "Unable to mount filesystem for $SD_EXT_DIRECTORY!";
+                    fi
+	    elif [ "$FSTYPE" == "ext3" ];
+	    then
+       	        insmod /system/lib/modules/jbd.ko
+	        insmod /system/lib/modules/ext3.ko
+                $BB mount -o noatime,nodiratime -t ext3 $PARTITION $SD_EXT_DIRECTORY;     
+	        if [ "$?" = 0 ];
+                then
+                    $BB chown 1000:1000 $SD_EXT_DIRECTORY;
+                    $BB chmod 771 $SD_EXT_DIRECTORY;
+                    $LOGI "$SD_EXT_DIRECTORY successfully mounted as ext3";
+                    else
+                        $LOGE "Unable to mount filesystem for $SD_EXT_DIRECTORY!";
+                    fi
+	    else
+                $BB mount -o noatime,nodiratime -t auto $PARTITION $SD_EXT_DIRECTORY;
+                if [ "$?" = 0 ];
+                then
+                    $BB chown 1000:1000 $SD_EXT_DIRECTORY;
+                    $BB chmod 771 $SD_EXT_DIRECTORY;
+                    $LOGI "$SD_EXT_DIRECTORY successfully mounted as ext2";
+                else
+                    $LOGE "Unable to mount filesystem for $SD_EXT_DIRECTORY!";
+                fi
+       	    fi
         else
             $LOGE "Unable to repair filesystem, disabling apps2sd";
         fi
