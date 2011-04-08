@@ -3,7 +3,7 @@ PRODUCT_NAME := floyo
 PRODUCT_BRAND := cyanogen
 PRODUCT_DEVICE := generic
 
-PRODUCT_PACKAGES += Launcher2
+#PRODUCT_PACKAGES += Launcher2
 
 # Add ROMManager build property
 PRODUCT_PROPERTY_OVERRIDES += \
