@@ -2,9 +2,18 @@
 #
 # Load any extra modules
 
-MODULES="ipv6"
+#MODULES="ipv6"
 
-for i in $MODULES;
-do
-    modprobe $i;
-done
+#for i in $MODULES;
+#do
+#    modprobe $i;
+#done
+
+# Workaround for rmmod
+KERNEL=`/system/xbin/uname -r`
+DIRECTORY=/system/modules/$KERNEL
+if [ ! -d "$DIRECTORY" ]; then
+	mkdir -p /system/modules
+	/system/xbin/ln -s /system/lib/modules/ $DIRECTORY
+fi
+
