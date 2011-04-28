@@ -24,8 +24,6 @@ then
 	/system/bin/cat /proc/x8oc | /system/xbin/grep '^     1' | /system/xbin/awk '{print $2}'| /system/xbin/tr '\n' ' ' > $FREQ_LIST_FILE2
 fi
 
-/system/bin/mkdir -p /data/local/download
-
 if [ -n "$PROP_KB" ];
 then
 	$LOGI "defined sdcard cache read size is $PROP_KB"
