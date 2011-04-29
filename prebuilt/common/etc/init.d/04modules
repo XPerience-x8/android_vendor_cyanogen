@@ -2,17 +2,22 @@
 #
 # Load any extra modules
 
-MODULES="ipv6"
+#MODULES="ipv6"
 
-KVER=`uname -r`
-if [ ! -d /system/lib/modules/$KVER ]
-then
-    exit 0
+#for i in $MODULES;
+#do
+#    modprobe $i;
+#done
+
+# Workaround for rmmod
+mount -o remount,rw /dev/block/mtdblock0 /system
+KERNEL=`/system/xbin/uname -r`
+DIRECTORY=/system/modules/$KERNEL
+if [ ! -d "$DIRECTORY" ]; then
+	mkdir -p /system/modules
+	/system/xbin/ln -s /system/lib/modules/ $DIRECTORY
 fi
+# Workaround for tiwlan
+/system/xbin/sed -i s/tiwlan/wlan/ /system/etc/dhcpcd.conf
+mount -o remount,ro /system
 
-for i in $MODULES
-do
-    modprobe $i >/dev/null 2>&1
-done
-
-exit 0
