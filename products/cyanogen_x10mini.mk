@@ -35,7 +35,7 @@ PRODUCT_PACKAGES += Torch
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM-2.0.0
+	ro.modversion=MiniCM-2.0.1
 
 #
 # Copy bootanimation
