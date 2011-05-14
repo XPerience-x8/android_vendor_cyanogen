@@ -17,9 +17,14 @@ DEFAULT=`/system/xbin/echo $DEFAULT_KB | /system/xbin/sed 's/KB//'`
 PROP_KB=`getprop persist.sys.sdcardcachereadsize`
 PROP=`/system/xbin/echo $PROP_KB | /system/xbin/sed 's/KB//'`
 
+# Insert Overclocking module
+/system/bin/insmod /system/lib/modules/x8oc.ko 
+/system/bin/sleep 2
+/system/xbin/echo x25 > /proc/x8oc
+
 if [ -e /proc/x8oc ]
 then
-	sleep 2
+	
 	/system/xbin/rm -f $FREQ_LIST_FILE2
 	/system/bin/cat /proc/x8oc | /system/xbin/grep '^     1' | /system/xbin/awk '{print $2}'| /system/xbin/tr '\n' ' ' > $FREQ_LIST_FILE2
 fi
