@@ -17,17 +17,19 @@ DEFAULT=`/system/xbin/echo $DEFAULT_KB | /system/xbin/sed 's/KB//'`
 PROP_KB=`getprop persist.sys.sdcardcachereadsize`
 PROP=`/system/xbin/echo $PROP_KB | /system/xbin/sed 's/KB//'`
 
-# Insert Overclocking module
-/system/bin/insmod /system/lib/modules/x8oc.ko 
-/system/bin/sleep 2
-/system/xbin/echo x25 > /proc/x8oc
+# Uncomment the following lines to have the overclocking module automatically inserted
+#/system/bin/insmod /system/lib/modules/x10minioc.ko 
+#/system/bin/sleep 2
+#/system/xbin/echo x25 > /proc/x10minioc
 
-if [ -e /proc/x8oc ]
+/system/xbin/rm -f $FREQ_LIST_FILE2
+if [ -e /proc/x10minioc ]
 then
-	
-	/system/xbin/rm -f $FREQ_LIST_FILE2
-	/system/bin/cat /proc/x8oc | /system/xbin/grep '^     1' | /system/xbin/awk '{print $2}'| /system/xbin/tr '\n' ' ' > $FREQ_LIST_FILE2
+	/system/bin/cat /proc/x10minioc | /system/xbin/grep '^     1' | /system/xbin/awk '{print $2}'| /system/xbin/tr '\n' ' ' > $FREQ_LIST_FILE2
+else
+	/system/xbin/echo "122880 245760 320000 480000 600000" > $FREQ_LIST_FILE2
 fi
+chown 1000:1000 $FREQ_LIST_FILE2
 
 if [ -n "$PROP_KB" ];
 then
