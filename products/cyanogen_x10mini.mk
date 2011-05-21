@@ -31,6 +31,9 @@ WITH_WINDOWS_MEDIA := true
 # Add the Torch app
 PRODUCT_PACKAGES += Torch
 
+# Add the Cyanogenmod Wallpapers
+PRODUCT_PACKAGES += CMWallpapers
+
 #
 # Set ro.modversion
 #
