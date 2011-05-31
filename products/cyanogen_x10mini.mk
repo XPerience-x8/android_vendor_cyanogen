@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += CMWallpapers
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM7-2.0.1
+	ro.modversion=MiniCM7-2.0.2
 
 #
 # Copy bootanimation
