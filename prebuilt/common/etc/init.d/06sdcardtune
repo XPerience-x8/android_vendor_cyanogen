@@ -1,6 +1,7 @@
 #!/system/bin/sh
 #
-# Sets sdcard read cache size
+# Sets sdcard read cache size and does several other initializations needed by MiniCM
+#
 
 if [ -e /system/bin/log ];
 then
@@ -12,7 +13,7 @@ else
 fi
 
 FREQ_LIST_FILE2="/data/local/tmp/available_frequencies"
-DEFAULT_KB="2048KB"
+DEFAULT_KB="128KB"
 DEFAULT=`/system/xbin/echo $DEFAULT_KB | /system/xbin/sed 's/KB//'`
 PROP_KB=`getprop persist.sys.sdcardcachereadsize`
 PROP=`/system/xbin/echo $PROP_KB | /system/xbin/sed 's/KB//'`
@@ -30,6 +31,16 @@ else
 	/system/xbin/echo "122880 245760 320000 480000 600000" > $FREQ_LIST_FILE2
 fi
 chown 1000:1000 $FREQ_LIST_FILE2
+
+
+if [ -f /system/bin/xrecovery.tar ]; then
+	RECVERSION=`/system/xbin/strings /system/bin/xrecovery.tar|/system/xbin/grep xRecovery`
+	setprop ro.recversion "$RECVERSION"
+else
+	RECVERSION=`/system/xbin/strings /system/bin/recovery.tar |/system/xbin/grep ClockworkMod|/system/xbin/head -n 1`
+	setprop ro.recversion "$RECVERSION"
+fi
+
 
 if [ -n "$PROP_KB" ];
 then
