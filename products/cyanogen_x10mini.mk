@@ -41,6 +41,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.modversion=MiniCM7-2.0.2
 
 #
+# Set ro.modversion
+#
+#ifdef CYANOGEN_NIGHTLY
+#    PRODUCT_PROPERTY_OVERRIDES += \
+#        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-x10Mini
+#else
+#    ifdef CYANOGEN_RELEASE
+#        PRODUCT_PROPERTY_OVERRIDES += \
+#            ro.modversion=CyanogenMod-7.0.2-X10Mini
+#    else
+#        PRODUCT_PROPERTY_OVERRIDES += \
+#            ro.modversion=CyanogenMod-7.0.2-X10Mini-000
+#    endif
+#endif
+
+#
 # Copy bootanimation
 #
 PRODUCT_COPY_FILES +=  \

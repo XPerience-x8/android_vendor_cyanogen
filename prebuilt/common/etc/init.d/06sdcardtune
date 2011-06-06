@@ -33,11 +33,11 @@ fi
 chown 1000:1000 $FREQ_LIST_FILE2
 
 
-if [ -f /system/bin/xrecovery.tar ]; then
-	RECVERSION=`/system/xbin/strings /system/bin/xrecovery.tar|/system/xbin/grep xRecovery`
+if [ -f /system/bin/recovery.tar ]; then
+	RECVERSION=`/system/xbin/strings /system/bin/recovery.tar | /system/xbin/grep ClockworkMod|/system/xbin/head -n 1`
 	setprop ro.recversion "$RECVERSION"
-else
-	RECVERSION=`/system/xbin/strings /system/bin/recovery.tar |/system/xbin/grep ClockworkMod|/system/xbin/head -n 1`
+elif [ -f /system/bin/xrecovery.tar ]; then
+	RECVERSION=`/system/xbin/strings /system/bin/xrecovery.tar | /system/xbin/grep xRecovery`
 	setprop ro.recversion "$RECVERSION"
 fi
 
