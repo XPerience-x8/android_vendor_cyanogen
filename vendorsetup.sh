@@ -57,6 +57,7 @@ add_lunch_combo cyanogen_robyn-eng
 add_lunch_combo cyanogen_saga-eng
 add_lunch_combo cyanogen_satsuma-eng
 add_lunch_combo cyanogen_robyn-eng
+add_lunch_combo cyanogen_shakira-eng
 add_lunch_combo cyanogen_shadow-eng
 add_lunch_combo cyanogen_shakira-eng
 add_lunch_combo cyanogen_sholes-eng
