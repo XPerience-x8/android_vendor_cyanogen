@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += CMWallpapers
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM7-2.0.7
+	ro.modversion=MiniCM7-2.1.0
 
 #
 # Set ro.modversion
