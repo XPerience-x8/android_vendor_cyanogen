@@ -28,6 +28,9 @@ PRODUCT_LOCALES += ldpi mdpi
 # Extra overlay for LDPI
 PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
 
+# Ti FM radio
+#$(call inherit-product, vendor/cyanogen/products/ti_fm_radio.mk)
+
 # Enable Windows Media
 WITH_WINDOWS_MEDIA := true
 
@@ -41,7 +44,7 @@ PRODUCT_PACKAGES += CMWallpapers
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM7-2.1.2
+	ro.modversion=MiniCM7-2.1.3
 
 #
 # Set ro.modversion
