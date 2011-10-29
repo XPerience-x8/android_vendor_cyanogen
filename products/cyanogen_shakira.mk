@@ -15,15 +15,11 @@ PRODUCT_BRAND := SEMC
 PRODUCT_DEVICE := shakira
 PRODUCT_MODEL := E15i
 PRODUCT_MANUFACTURER := Sony Ericsson
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_DEVICE=E15i PRODUCT_NAME=E15i BUILD_ID=3.0.1.A.0.145 BUILD_FINGERPRINT=SEMC/LT15i_1247-1073/LT15i:2.3.3/3.0.1.A.0.145/bn_p:user/release-keys PRIVATE_BUILD_DESC="LT15i-user 2.3.3 3.0.1.A.0.145 bn_P test-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_DEVICE=E15i PRODUCT_NAME=E15i BUILD_ID=3.0.1.A.0.145 BUILD_DISPLAY_ID=3.0.1.A.0.145 BUILD_FINGERPRINT=SEMC/LT15i_1247-1073/LT15i:2.3.3/3.0.1.A.0.145/bn_p:user/release-keys PRIVATE_BUILD_DESC="LT15i-user 2.3.3 3.0.1.A.0.145 bn_P test-keys"
 
-PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/device/semc/shakira/prelink-linux-arm-shakira.map
 
-# Add LDPI assets, in addition to MDPI
+# Add MDPI assets
 PRODUCT_LOCALES += mdpi
-
-# Extra overlay for LDPI
-#PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
 
 # Enable Windows Media
 WITH_WINDOWS_MEDIA := true
@@ -35,7 +31,7 @@ PRODUCT_PACKAGES += CMWallpapers
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM7-2.0.7
+	ro.modversion=MiniCM7-2.1.4
 
 #
 # Set ro.modversion
