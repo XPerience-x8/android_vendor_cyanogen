@@ -17,6 +17,9 @@ PRODUCT_MODEL := U20i
 PRODUCT_MANUFACTURER := Sony Ericsson
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_DEVICE=U20i PRODUCT_NAME=U20i BUILD_ID=3.0.1.A.0.145 BUILD_FINGERPRINT=SEMC/LT15i_1247-1073/LT15i:2.3.3/3.0.1.A.0.145/bn_p:user/release-keys PRIVATE_BUILD_DESC="LT15i-user 2.3.3 3.0.1.A.0.145 bn_P test-keys"
 
+PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/device/semc/robyn/prelink-linux-arm-robyn.map
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=GWK74
+
 # Add the Torch app
 PRODUCT_PACKAGES += Torch
 
@@ -29,13 +32,46 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
 # Ti FM radio
 #$(call inherit-product, vendor/cyanogen/products/ti_fm_radio.mk)
 
-# Release name and versioning
-PRODUCT_RELEASE_NAME := X10MiniPro
-PRODUCT_VERSION_DEVICE_SPECIFIC :=
--include vendor/cyanogen/products/common_versions.mk
+# Enable Windows Media
+WITH_WINDOWS_MEDIA := true
+
+# Add the Torch app
+PRODUCT_PACKAGES += Torch
+
+# Add the Cyanogenmod Wallpapers
+PRODUCT_PACKAGES += CMWallpapers
 
 #
-# Copy MDPI specific prebuilt files
+# Set ro.modversion
+#
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=MiniCM7-2.1.6
+
+#
+# Set ro.modversion
+#
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.modversion=MiniCM7-2.1.6
+
+#
+# Set ro.modversion
+#
+#ifdef CYANOGEN_NIGHTLY
+#    PRODUCT_PROPERTY_OVERRIDES += \
+#        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-x10Mini
+#else
+#    ifdef CYANOGEN_RELEASE
+#        PRODUCT_PROPERTY_OVERRIDES += \
+#            ro.modversion=CyanogenMod-7.0.2-X10Mini
+#    else
+#        PRODUCT_PROPERTY_OVERRIDES += \
+#            ro.modversion=CyanogenMod-7.0.2-X10Mini-000
+#    endif
+#endif
+
+#
+# Copy bootanimation
 #
 PRODUCT_COPY_FILES +=  \
     vendor/cyanogen/prebuilt/ldpi/media/bootanimation.zip:system/media/bootanimation.zip
+
