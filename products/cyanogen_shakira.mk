@@ -30,7 +30,7 @@ WITH_WINDOWS_MEDIA := true
 # Set ro.modversion
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.modversion=MiniCM7-2.1.7
+	ro.modversion=MiniCM7-2.1.9
 
 #
 # Copy bootanimation
