@@ -31,9 +31,3 @@ WITH_WINDOWS_MEDIA := true
 #
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.modversion=MiniCM7-2.2.0
-
-#
-# Copy bootanimation
-#
-PRODUCT_COPY_FILES +=  \
-	vendor/cyanogen/prebuilt/mdpi/media/bootanimation.zip:system/media/bootanimation.zip
