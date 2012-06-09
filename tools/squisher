@@ -138,9 +138,8 @@ rm -rf $REPACK/ota/recovery
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
 # Determine what to name the new signed package
-	MODVERSION=`sed -n -e'/ro\.modversion/s/^.*CyanogenMod-//p' $REPACK/ota/system/build.prop`
-	: ${MODVERSION:=nightly}
-	OUTFILE=$OUT/cm-$MODVERSION.zip
+       MODVERSION=`grep 'ro.modversion' $REPACK/ota/system/build.prop | sed 's/ro\.modversion=//'`
+       OUTFILE=$OUT/$MODVERSION.zip
 
 # Pack it up and sign
 printf "Zipping package..."
