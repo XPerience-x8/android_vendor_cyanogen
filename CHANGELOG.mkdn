@@ -1,3 +1,203 @@
+MiniCM7
+===============
+Visit project's page at: 
+http://code.google.com/p/minicm/
+
+Maintainers:
+------------
+nobodyAtall AT xda-developers
+DaRk_dOg AT xda-developers
+
+CHANGELOG
+---------
+### MiniCM7-2.2.1
+* CM7.2 RC4
+
+### MiniCM7-2.2.0
+* CM7.2 RC1
+* Small bugfixes
+* Improved scrolling performance
+* Updated adreno libs
+* Media profiles update
+* New bootanimation
+
+### MiniCM7-2.1.9
+* Improved proximity and light sensors (should solve screen staying black and skype issues)
+* a2sd scripts by texasice (http://forum.xda-developers.com/showpost.php?p=21222591&postcount=1374)
+* a2sd via CM Settings -> Performance menu
+* Blade lockscreen style
+* Option to remove all stored Wifi networks by long pressing
+* Seperate notifications for MiniCM ROM / nAa kernel
+* Fixed Radio FM app RDS allignment
+* adb over network
+* kernel: 2.6.29.6-nAa-11
+
+### MiniCM7-2.1.8
+* Improved 2d/3d performance
+* Configurable centre clock in status bar
+* ICS Transition animations and rotation effect
+* kernel: 2.6.29.6-nAa-10
+
+### MiniCM7-2.1.7
+* Suport for X10mini pro (mimmi)
+* Various enchancements and fixes from CM
+* (CM) T9 dialer for quickly finding contacts
+* If no boot animation is selected, the MiniCM7 logo is shown
+* kernel: 2.6.29.6-nAa-09
+
+### MiniCM7-2.1.6
+* Offline charging
+* Show kernel bootlogo if bootanimation is disabled
+* Removed modular overclocking since nAa-07 already has overclocked frequencies to choose from
+* Option to toggle flashlight from lockscreen (CM Settings -> Lockscreen -> Widgets)
+* Fixed OpenGL ES 2.0 version reporting
+* MiniCM7 and OrangeHaze theme updates
+* kernel: 2.6.29.6-nAa-07
+
+### MiniCM7-2.1.5
+* Based on CM-7.2.0 (RC0)
+* Suport for X8 (shakira)
+* Focus with camera button while video recording (robyn)
+* Disable network lock dialog after pin input (configurable)
+
+### MiniCM7-2.1.4
+* Sensors are now built from source (no compat mode). No sensor delays
+* Many CM fixes related to stability, bugs and new features
+* Disabled automatic light sensor screen dimming
+* Automatic brightness now works (select tickbox from display settings and also allow light decrease from CM Display Settings)
+* Liblights fixes
+* kernel: 2.6.29.6-nAa-06
+
+### MiniCM7-2.1.3
+* Based on CM-7.1 release (Android 2.3.7)
+* kernel: 2.6.29.6-nAa-05
+* USB tethering
+* New usb drivers
+* Some extra RAM
+* Switched to fake dual touch from andrej456 (seems to be the best choice for the mini)
+* Ant+ support
+
+### MiniCM7-2.1.2
+* kernel: 2.6.29.6-nAa-04
+* Compcache support (configurable via CM Settings menu)
+* Audio recording quality improvement
+* Ring lockscreen
+* Cherry-picks: Greek dictionary, MIUI-like Battery Bar, Preference to disable bootanimation for faster boot
+* Updated Polish translations
+* Fixed carrier detection and selection
+
+### MiniCM7-2.1.1
+* Reverted Custom carrier label since it broke lockscreen unlocking
+
+### MiniCM7-2.1.0
+* kernel: 2.6.29-nAa-02
+* Updated wifi/AP modules
+* Fixed 'notification bar difficult to pull up' issue
+* Fake DT updated to doixahn's 007 (in kernel)
+* Major device re-organizing and clean up. Allign with CM/robyn
+* Custom carrier label in CM Settings -> Interface -> Status bar tweaks
+* Clamp the duration of rotary animations
+* Reposition rotary lockscreen for 'drag down to unlock' to work easier
+* Camera support for googles and other apps (X8)
+* Loop ringtone option via: Settings-> CM Settings -> Sound
+* Fixed CWM recovery detection in About -> Phone
+
+### MiniCM7-2.0.7
+* CM Setting (input settings) for back button to end current call
+* Added Smartass governor (thanks to AnDyX), not enabled by default
+* Wpa_supplicant / Wifi from sources
+* Rotary doesn't cover caller's name any more
+* LED flash via notification bar 
+* Offline charging for X8
+
+### MiniCM7-2.0.6
+* netcfg, libbluedroid from sources
+* Improved bluetooth / FM Radio functionality
+* liblights from sources
+* Replaced Launcher2 with ADWLauncher
+* Fixed /data getting filled up with failed download files
+* MDPI and several other fixes for X8
+
+### MiniCM7-2.0.5
+* Fixed ddms screen capture
+* Full camera capabilities (photos / video / AF / Flash) using eclair libcamera
+* Fixed chargemon script for multiboot
+* Smoother 2D scrolling
+
+### MiniCM7-2.0.4
+* Android version 2.3.5 (GRJ90)
+* Removed Launcher pro (you can download latest rev. from market)
+* Optimize apks and strip down size
+* Updated LiveWallpapers
+* Updated CWM recovery to 3.2.0.0-r5 x10mini (multiboot + encryption)
+
+### MiniCM7-2.0.3
+* Cyanogenmod 7.1.0-RC1
+* Theme updates for various parts
+* Radio app improvements
+* Fixed Usb debugging notification icon
+* backuptool on installation that backs up and restores google propriatery system files 
+(no need to reflash gapps if it was already installed)
+
+### MiniCM7-2.0.2
+* ClockworkMod recovery v.3.2.0.0-r3 for x10mini
+* Build number: GRJ22 (almost CM7.1) - several changes from Cyanogen
+* Many theme updates for MiniCM7 theme, new OrangeHaze theme
+* SDcard Cache size changed to 128K to avoid music players hiccups
+
+### MiniCM7-2.0.1
+* MiniCM Update notifications via c2dm (CM Settings -> System -> Update notifications)
+* Camcoder high quality mode (VGA: 640x480)
+* Many Theme updates in numerous system places and applications
+* Cyanogenmod now has an option in CM Settings -> Lock screen -> Style options -> Incoming call style
+* Undervolting and Overclocking handled CM Settings menu (by default none is active)
+* Notification led
+* Fixed audio routing in FM Radio app
+* APN settings listing 
+* gralloc reverted to stock (better performance)
+* Sensors fixed, working in compat mode
+* Compass fixed
+* Fixed Magic smoke wallpaper
+* Permission Management for apps by Cyanogenmod
+* Launcher Pro 0.8.6
+
+### MiniCM7-2.0.0
+* Cyanogen7.0.3 - Android 2.3.4 code baseline
+* Built for LDPI
+* MiniCM7 theme
+* GSM/SMS/Data(3G, EDGE)
+* Wifi
+* FM Radio
+* Fixed reboots bug
+* Stock audio Recording
+* Flash led (Torch app)
+* ADB at boot
+* Sensors (except proximity and light)
+* OpenGL/3D
+* Audio Jack
+* Video decoder
+* Video playback support for 3rd party apps
+* Vibration
+* GPS
+* Bluetooth
+* App2sd (storing to ext*. Detect ext3/4 partitions and mount as such)
+* Native App2sd
+* xRecovery preinstalled
+* Usb mass storage
+* Audio Mixer
+* Camera (VGA)
+* Stock SE keyboard
+* Offline charging
+* Reboot menu - boot into xRecovery
+* tun module (vpnc)
+* Fake DT support (Thanks to: doixanh, andrej456)
+* Overclocking (Thanks to: doixanh)
+* Mddi lag fix (Thanks to: doixanh)
+* CM Settings performance menu for setting the Sdcard read cache size (speed improvements for sdcard)
+* CM Settings performance menu for CPU Overclocking
+* CM Settings display menu for Ultra brightness
+
+
 CyanogenMod
 ===============
 
