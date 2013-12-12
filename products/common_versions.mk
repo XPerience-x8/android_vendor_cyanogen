@@ -1,16 +1,23 @@
-PRODUCT_VERSION_MAJOR = 2
-PRODUCT_VERSION_MINOR = 2.1
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=GWK74
+PRODUCT_VERSION_MAJOR = 1
+PRODUCT_VERSION_MINOR = 9
+
 
 ifdef CYANOGEN_NIGHTLY
-    CMVERSION := MiniCM7-$(shell date +%Y%m%d)-NIGHTLY-$(CM_BUILD)
+    CMVERSION := XPerience-$(shell date +%Y%m%d)-NIGHTLY-$(CM_BUILD)
 else
     ifdef CYANOGEN_RELEASE
-        CMVERSION := MiniCM7-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(CM_BUILD)
+        CMVERSION := XPerience-$(PRODUCT_VERSION_MAJOR)$(PRODUCT_VERSION_MINOR)-$(CM_BUILD)
     else
-        CMVERSION := MiniCM7-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(CM_BUILD)-UNOFFICIAL
+        CMVERSION := XPerience-$(PRODUCT_VERSION_MAJOR)$(PRODUCT_VERSION_MINOR)-$(CM_BUILD)
     endif
 endif
+build_XPE := eng_klozz-$(shell date +%Y%m%d)-$(CMVERSION)
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=$(build_XPE)
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.modversion=$(CMVERSION)
+    ro.xpe.dev=Klozz-jesus \
+    ro.build.version=$(PRODUCT_VERSION_MAJOR)$(PRODUCT_VERSION_MINOR) \
+    ro.modversion=$(CMVERSION) \
+    persist.sys.themeId = JellyBean \
+       persist.sys.themePackageName = com.klozz.theme.JellyBean
