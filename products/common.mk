@@ -3,14 +3,14 @@ PRODUCT_NAME := cyanogen
 PRODUCT_BRAND := cyanogen
 PRODUCT_DEVICE := generic
 
-PRODUCT_PACKAGES += Launcher2
+#PRODUCT_PACKAGES += Launcher2
 
 ifdef CYANOGEN_NIGHTLY
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmodnightly
+    ro.rommanager.developerid=XPerienceNightly
 else
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmod
+    ro.rommanager.developerid=klozz
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -35,8 +35,6 @@ PRODUCT_PACKAGES += \
     AndroidTerm \
     FileManager \
     CMParts \
-    CMStats \
-    CMUpdateNotify \
     DSPManager \
     libcyanogen-dsp \
     Pacman \
@@ -82,7 +80,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Always run in insecure mode, enables root on user build variants
-#ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
 ifdef CYANOGEN_WITH_GOOGLE
 
@@ -111,3 +109,6 @@ endif
 # Required, keyboard
 PRODUCT_PACKAGES += LatinIME
 
+#Copy holo
+PRODUCT_COPY_FILES += \
+vendor/xpe/prebuilt/HoloLauncher.apk:system/app/HoloLauncher.apk
